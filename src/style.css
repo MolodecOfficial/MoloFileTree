@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right,
+          #3f0a5d 10%,
+          #a864e7 100%,
+          #57426b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.directive {
+  background-color: hsla(0, 0%, 66%, 0.5);
+  opacity: 50%;
+  height: 250px;
+  width: 400px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.file-list,
+.file-list ul {
+  list-style-type: none;
+  font-size: 1em;
+  line-height: 1.8em;
+  margin-left: 5px;
+  padding-left: 20px;
+}
+
+.file-list ul:nth-child(n + 2) {
+  margin-left: -35px;
+  padding-left: -20px;
+}
+
+.file-list li {
+  position: relative;
+  padding-left: 25px;
+}
+
+.file-list li span {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.file-list li span:before {
+  display: block;
+  content: '▼';
+  width: 1px;
+  margin-right: 5px;
+  height: 1px;
+  position: absolute;
+  left: -16px;
+}
+.file-list li:before {
+  list-style-type: none;
+  display: block;
+  content: url('assets/file.svg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 1.3em;
+  color: #555;
+}
+.file-list .folder-root {
+  list-style-type: none;
+}
+
+.file-list .folder-root:before {
+  content: url('assets/folder.svg');
+}
+.file-list .folder-root.open:before {
+  content: url('assets/folder-open.svg');
+}
+li.folder-root ul {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+li.folder-root.closed > ul {
+  opacity: 0;
+  max-height: 0;
+}
+li.folder-root.open > ul {
+  opacity: 1;
+  display: block;
+  max-height: 1000px;
+}
+.edit {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 40px;
+}
+.delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
